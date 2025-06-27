@@ -1,0 +1,22 @@
+{
+  "name": "cypress-sdet-framework",
+  "version": "1.0.0",
+  "description": "Cypress framework for SDET automation",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:open:dev": "cypress open --config-file cypress.config.dev.js",
+    "cypress:open:qa": "cypress open --config-file cypress.config.qa.js",
+    "cypress:open:ppe": "cypress open --config-file cypress.config.ppe.js",
+    "cypress:run:dev": "cypress run --config-file cypress.config.dev.js",
+    "cypress:run:qa": "cypress run --config-file cypress.config.qa.js",
+    "cypress:run:ppe": "cypress run --config-file cypress.config.ppe.js",
+    "cy:coverage": "cypress run && nyc report --reporter=html"
+  },
+  "devDependencies": {
+    "@cypress/code-coverage": "^3.14.5",
+    "cypress": "^13.0.0",
+    "istanbul-lib-coverage": "^3.2.2",
+    "nyc": "^17.1.0"
+  }
+}
