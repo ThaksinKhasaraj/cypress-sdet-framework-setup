@@ -1,0 +1,32 @@
+[
+  {
+    "testcase": 1,
+    "role": "Admin",
+    "username": "admin",
+    "password": "admin123"
+  },
+  {
+    "testcase": 2,
+    "role": "ESS",
+    "username": "essuser",
+    "password": "esspass"
+  },
+  {
+    "testcase": 3,
+    "role": "Supervisor",
+    "username": "supervisor",
+    "password": "superpass"
+  },
+  {
+    "testcase": 4,
+    "role": "Manager",
+    "username": "manager",
+    "password": "managerpass"
+  },
+  {
+    "testcase": 5,
+    "role": "HR",
+    "username": "hruser",
+    "password": "hrpass"
+  }
+]
