@@ -1,16 +1,22 @@
-{
-  "existingEmployees": [
-    "Linda",
-    "John",
-    "Sarah",
-    "Robert",
-    "Emily"
-  ],
-  "nonExistingEmployees": [
-    "NonExistingUser",
-    "GhostUser",
-    "TestNotFound",
-    "NobodyHere",
-    "MissingPerson"
-  ]
-}
+[
+  {
+    "type": "existingEmployees",
+    "employees": [
+      "Linda",
+      "John",
+      "Sarah",
+      "Robert",
+      "Emily"
+    ]
+  },
+  {
+    "type": "nonExistingEmployees",
+    "employees": [
+      "NonExistingUser",
+      "GhostUser",
+      "TestNotFound",
+      "NobodyHere",
+      "MissingPerson"
+    ]
+  }
+]

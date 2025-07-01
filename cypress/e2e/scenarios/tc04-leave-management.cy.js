@@ -1,14 +1,21 @@
-const loginPage = require('../support/pageObjects/LoginPage');
-const menuPage = require('../support/pageObjects/MenuPage');
-const leavePage = require('../support/pageObjects/LeavePage');
+const loginPage = require('../../support/pageObjects/LoginPage');
+const MenuPage = require('../../support/pageObjects/MenuPage');
+const menuPage = new MenuPage();
+const leavePage = require('../../support/pageObjects/LeavePage');
 const leaveData = require('../../test-data/leave.json');
 
-describe('TC29: Full leave management scenario', () => {
+describe('TC04: Full leave management scenario', () => {
   before(() => {
+    cy.clearCookies();
+    cy.clearLocalStorage();
     cy.fixture('users').then(users => {
       const employee = users.find(u => u.role === 'ESS');
       loginPage.login(employee ? employee.username : users[0].username, employee ? employee.password : users[0].password);
     });
+  });
+
+  after(() => {
+    cy.logout();
   });
 
   it('should complete all leave management steps', () => {
@@ -63,6 +70,5 @@ describe('TC29: Full leave management scenario', () => {
     leavePage.addLeaveApproval(leaveData.approval);
     leavePage.editLeaveApproval(leaveData.approval, leaveData.approvalUpdated);
     leavePage.deleteLeaveApproval(leaveData.approvalUpdated);
-    cy.logout();
   });
 });

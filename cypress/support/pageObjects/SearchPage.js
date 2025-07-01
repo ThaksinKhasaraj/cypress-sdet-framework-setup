@@ -1,18 +1,23 @@
 const locators = {
-  searchInput: 'input[placeholder="Search"]',
+  searchInput: 'input[placeholder="Type for hints..."]',
   submitButton: 'button[type="submit"]'
 };
 
 class SearchPage {
-  search(text) {
-    cy.get(locators.searchInput).type(text);
+  noRecordsText = 'No Records Found';
+
+  search(name) {
+    cy.get(locators.searchInput).clear().type(name);
     cy.get(locators.submitButton).click();
   }
-  verifyResult(text) {
-    cy.contains(text).should('exist');
+
+  verifyResult(name) {
+    cy.contains(name).should('exist');
   }
+
   verifyNoResult() {
-    cy.contains('No Records Found').should('exist');
+    cy.contains(this.noRecordsText).should('exist');
   }
 }
+
 module.exports = new SearchPage();

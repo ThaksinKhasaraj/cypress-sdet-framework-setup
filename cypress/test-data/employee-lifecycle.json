@@ -1,34 +1,36 @@
-{
-  "firstName": "John",
-  "lastName": "Doe",
-  "updatedFirstName": "Johnny",
-  "jobTitle": "QA Engineer",
-  "supervisor": "Linda",
-  "emergencyContact": {
-    "name": "Jane Doe",
-    "relationship": "Wife",
-    "phone": "0123456789"
-  },
-  "dependent": {
-    "name": "Jimmy Doe",
-    "relationship": "Child"
-  },
-  "immigrationNumber": "A1234567",
-  "salary": "50000",
-  "taxStatus": "Single",
-  "qualification": "MIT",
-  "workExperience": "ABC Corp",
-  "skill": "Cypress",
-  "language": "Thai",
-  "license": "Driver License",
-  "leaveEntitlement": "10",
-  "leaveStart": "2024-12-01",
-  "leaveEnd": "2024-12-05",
-  "trackerName": "Tracker1",
-  "caseName": "Late Arrival",
-  "travelDestination": "Bangkok",
-  "expenseAmount": "1000",
-  "trainingName": "Cypress Automation",
-  "goalName": "Complete Project",
-  "kpiName": "Quality"
-}
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "updatedFirstName": "Johnny",
+    "jobTitle": "QA Engineer",
+    "supervisor": "Linda",
+    "emergencyContact": {
+      "name": "Jane Doe",
+      "relationship": "Wife",
+      "phone": "0123456789"
+    },
+    "dependent": {
+      "name": "Jimmy Doe",
+      "relationship": "Child"
+    },
+    "immigrationNumber": "A1234567",
+    "salary": "50000",
+    "taxStatus": "Single",
+    "qualification": "MIT",
+    "workExperience": "ABC Corp",
+    "skill": "Cypress",
+    "language": "Thai",
+    "license": "Driver License",
+    "leaveEntitlement": "10",
+    "leaveStart": "2024-12-01",
+    "leaveEnd": "2024-12-05",
+    "trackerName": "Tracker1",
+    "caseName": "Late Arrival",
+    "travelDestination": "Bangkok",
+    "expenseAmount": "1000",
+    "trainingName": "Cypress Automation",
+    "goalName": "Complete Project",
+    "kpiName": "Quality"
+  }
+]

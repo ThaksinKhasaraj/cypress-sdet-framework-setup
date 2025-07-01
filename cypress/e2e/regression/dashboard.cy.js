@@ -13,3 +13,4 @@ describe('Dashboard Page', () => {
     cy.get('.oxd-topbar-header-title').should('contain', 'Dashboard');
   });
 });
+

@@ -1,4 +1,4 @@
-const LoginPage = require('./LoginPage');
+// (ลบเนื้อหาทั้งหมดของไฟล์นี้)
 const DashboardPage = require('./DashboardPage');
 const ProfilePage = require('./ProfilePage');
 const MenuPage = require('./MenuPage');
@@ -6,21 +6,21 @@ const SearchPage = require('./SearchPage');
 const ChangePasswordPage = require('./ChangePasswordPage');
 
 class PageManager {
-  loginPage = LoginPage;
-  dashboardPage = DashboardPage;
-  profilePage = ProfilePage;
-  menuPage = MenuPage;
-  searchPage = SearchPage;
-  changePasswordPage = ChangePasswordPage;
+  loginPage = new LoginPage();
+  dashboardPage = new DashboardPage();
+  profilePage = new ProfilePage();
+  menuPage = new MenuPage();
+  searchPage = new SearchPage();
+  changePasswordPage = new ChangePasswordPage();
 
   getMenuPage() {
-    return MenuPage;
+    return this.menuPage;
   }
   getSearchPage() {
-    return SearchPage;
+    return this.searchPage;
   }
   getChangePasswordPage() {
-    return ChangePasswordPage;
+    return this.changePasswordPage;
   }
 }
 

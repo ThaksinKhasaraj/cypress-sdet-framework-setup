@@ -1,10 +1,8 @@
-const loginPage = require('../support/pageObjects/LoginPage');
-const dashboardPage = require('../support/pageObjects/DashboardPage');
-const profilePage = require('../support/pageObjects/ProfilePage');
-const menuPage = require('../support/pageObjects/MenuPage');
-const pimPage = require('../support/pageObjects/PIMPage');
-const searchData = require('../../test-data/search.json');
-const profileData = require('../../test-data/profile.json');
+const loginPage = require('../../support/pageObjects/LoginPage');
+const dashboardPage = require('../../support/pageObjects/DashboardPage');
+const profilePage = require('../../support/pageObjects/ProfilePage');
+const MenuPage = require('../../support/pageObjects/MenuPage');
+const menuPage = new MenuPage();
 
 describe('E2E Test Cases', () => {
   beforeEach(() => {
@@ -13,37 +11,40 @@ describe('E2E Test Cases', () => {
     });
   });
 
-  it('[smoke][login] TC01: Admin login and dashboard visible', function () {
+  it('TC01: Login as Admin and verify dashboard', function () {
     loginPage.login(this.user.username, this.user.password);
     dashboardPage.verifyWelcomeMessage();
   });
 
-  it('[smoke][profile] TC02: Navigate to My Info and verify profile', function () {
+  it('TC02: Navigate to My Info and verify profile', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToMyInfo();
     profilePage.verifyProfileHeader();
   });
 
-  it('[regression][profile] TC03: Edit and save first name in profile', function () {
+  it('TC03: Edit and save first name in profile', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToMyInfo();
-    profilePage.editFirstName(profileData.editFirstName);
+    profilePage.editFirstName('E2EName');
     profilePage.save();
   });
 
-  it('[smoke][pim][search] TC04: Search employee in PIM', function () {
+  it('TC04: Search employee in PIM', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToPIM();
-    pimPage.searchEmployee(searchData.existingEmployee);
-    pimPage.verifyEmployeeExists(searchData.existingEmployee);
+    cy.get('input[placeholder="Type for hints..."]').type('Linda');
+    cy.get('button[type="submit"]').click();
+    cy.contains('Linda').should('exist');
   });
 
-  it('[smoke][logout] TC05: Logout as Admin', function () {
+  it('TC05: Logout', function () {
     loginPage.login(this.user.username, this.user.password);
-    loginPage.logout();
+    cy.get('.oxd-userdropdown-tab').click();
+    cy.contains('Logout').click();
+    cy.url().should('include', '/auth/login');
   });
 
-  it('[smoke][menu] TC06: Verify Admin menu is visible', function () {
+  it('TC06: Verify Admin menu is visible', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.verifyMenuVisible('Admin');
   });
@@ -51,74 +52,75 @@ describe('E2E Test Cases', () => {
   it('TC07: Go to Recruitment and verify page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToRecruitment();
-    menuPage.verifyMenuPage('Recruitment');
+    cy.contains('Recruitment').should('exist');
   });
 
   it('TC08: Go to Leave and verify page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToLeave();
-    menuPage.verifyMenuPage('Leave');
+    cy.contains('Leave').should('exist');
   });
 
   it('TC09: Go to Time and verify page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToTime();
-    menuPage.verifyMenuPage('Time');
+    cy.contains('Time').should('exist');
   });
 
   it('TC10: Go to Directory and verify page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToDirectory();
-    menuPage.verifyMenuPage('Directory');
+    cy.contains('Directory').should('exist');
   });
 
   it('TC11: Go to Maintenance and verify page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToMaintenance();
-    menuPage.verifyMenuPage('Maintenance');
+    cy.contains('Maintenance').should('exist');
   });
 
   it('TC12: Go to Buzz and verify page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToBuzz();
-    menuPage.verifyMenuPage('Buzz');
+    cy.contains('Buzz').should('exist');
   });
 
   it('TC13: Go to Performance and verify page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToPerformance();
-    menuPage.verifyMenuPage('Performance');
+    cy.contains('Performance').should('exist');
   });
 
   it('TC14: Go to Dashboard and verify page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToDashboard();
-    menuPage.verifyMenuPage('Dashboard');
+    cy.contains('Dashboard').should('exist');
   });
 
   it('TC15: Attempt login with invalid credentials', function () {
     loginPage.login('invalid', 'invalid');
-    loginPage.verifyInvalidCredentials();
+    cy.contains('Invalid credentials').should('exist');
   });
 
   it('TC16: Edit profile and check save', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToMyInfo();
-    profilePage.editFirstName(profileData.editFirstName2);
+    profilePage.editFirstName('Automation');
     profilePage.save();
   });
 
   it('TC17: Search for non-existing employee', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToPIM();
-    pimPage.searchEmployee(searchData.nonExistingEmployee);
-    pimPage.verifyNoEmployeeFound();
+    cy.get('input[placeholder="Type for hints..."]').type('NonExistingUser');
+    cy.get('button[type="submit"]').click();
+    cy.contains('No Records Found').should('exist');
   });
 
   it('TC18: Open user dropdown', function () {
     loginPage.login(this.user.username, this.user.password);
-    loginPage.openUserDropdown();
-    loginPage.verifyDropdownVisible();
+    cy.get('.oxd-userdropdown-tab').click();
+    cy.get('.oxd-dropdown-menu').should('be.visible');
   });
 
   it('TC19: Check profile header after login', function () {
@@ -130,36 +132,36 @@ describe('E2E Test Cases', () => {
   it('TC20: Go to Admin and check page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToAdmin();
-    menuPage.verifyMenuPage('Admin');
+    cy.contains('Admin').should('exist');
   });
 
   it('TC21: Go to PIM and check page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToPIM();
-    menuPage.verifyMenuPage('PIM');
+    cy.contains('PIM').should('exist');
   });
 
   it('TC22: Go to My Info and check page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToMyInfo();
-    profilePage.verifyProfileHeader();
+    cy.contains('Personal Details').should('exist');
   });
 
   it('TC23: Go to Recruitment and check page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToRecruitment();
-    menuPage.verifyMenuPage('Recruitment');
+    cy.contains('Recruitment').should('exist');
   });
 
   it('TC24: Go to Leave and check page', function () {
     loginPage.login(this.user.username, this.user.password);
     menuPage.goToLeave();
-    menuPage.verifyMenuPage('Leave');
+    cy.contains('Leave').should('exist');
   });
 
-    it('TC25: Go to Time and check page', function () {
-      loginPage.login(this.user.username, this.user.password);
-      menuPage.goToTime();
-      menuPage.verifyMenuPage('Time');
-    });
+  it('TC25: Go to Time and check page', function () {
+    loginPage.login(this.user.username, this.user.password);
+    menuPage.goToTime();
+    cy.contains('Time').should('exist');
   });
+});

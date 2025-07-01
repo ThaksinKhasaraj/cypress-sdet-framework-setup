@@ -16,6 +16,7 @@
   "devDependencies": {
     "@cypress/code-coverage": "^3.14.5",
     "cypress": "^13.0.0",
+    "cypress-axe": "^1.6.0",
     "istanbul-lib-coverage": "^3.2.2",
     "nyc": "^17.1.0"
   }

@@ -20,37 +20,37 @@ class MenuPage {
     cy.contains('a', menuName).should('be.visible');
   }
   goToAdmin() {
-    cy.get(locators.admin).click();
+    cy.get(locators.admin).first().click();
   }
   goToPIM() {
-    cy.get(locators.pim).click();
+    cy.get(locators.pim).first().click();
   }
   goToLeave() {
-    cy.get(locators.leave).click();
+    cy.get(locators.leave).first().click();
   }
   goToTime() {
-    cy.get(locators.time).click();
+    cy.get(locators.time).first().click();
   }
   goToRecruitment() {
-    cy.get(locators.recruitment).click();
+    cy.get(locators.recruitment).first().click();
   }
   goToMyInfo() {
-    cy.get(locators.myInfo).click();
+    cy.get(locators.myInfo).first().click();
   }
   goToPerformance() {
-    cy.get(locators.performance).click();
+    cy.get(locators.performance).first().click();
   }
   goToDashboard() {
-    cy.get(locators.dashboard).click();
+    cy.get(locators.dashboard).first().click();
   }
   goToDirectory() {
-    cy.get(locators.directory).click();
+    cy.get(locators.directory).first().click();
   }
   goToMaintenance() {
-    cy.get(locators.maintenance).click();
+    cy.get(locators.maintenance).first().click();
   }
   goToBuzz() {
-    cy.get(locators.buzz).click();
+    cy.get(locators.buzz).first().click();
   }
 }
 

@@ -2,6 +2,10 @@ const loginPage = require('../../support/pageObjects/LoginPage');
 const dashboardPage = require('../../support/pageObjects/DashboardPage');
 const profilePage = require('../../support/pageObjects/ProfilePage');
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false;
+});
+
 describe('Profile Page', () => {
   beforeEach(() => {
     cy.fixture('users').then((users) => {

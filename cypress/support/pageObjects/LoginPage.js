@@ -1,24 +1,24 @@
-const locators = {
-  usernameInput: 'input[name="username"]',
-  passwordInput: 'input[name="password"]',
-  submitButton: 'button[type="submit"]'
-};
-
 class LoginPage {
+  locators = {
+    usernameInput: 'input[name="username"]',
+    passwordInput: 'input[name="password"]',
+    submitButton: 'button[type="submit"]'
+  };
+
   visit() {
     cy.visit('/');
   }
 
   fillUsername(username) {
-    cy.get(locators.usernameInput).clear().type(username);
+    cy.get(this.locators.usernameInput).clear().type(username);
   }
 
   fillPassword(password) {
-    cy.get(locators.passwordInput).clear().type(password);
+    cy.get(this.locators.passwordInput).clear().type(password);
   }
 
   submit() {
-    cy.get(locators.submitButton).click();
+    cy.get(this.locators.submitButton).click();
   }
 
   login(username, password) {

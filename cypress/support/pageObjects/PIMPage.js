@@ -1,13 +1,18 @@
 class PIMPage {
+  // --- Locators ---
+  searchInput = 'input[placeholder="Type for hints..."]';
+  submitButton = 'button[type="submit"]';
+  noRecordsText = 'No Records Found';
+
   searchEmployee(name) {
-    cy.get('input[placeholder="Type for hints..."]').clear().type(name);
-    cy.get('button[type="submit"]').click();
+    cy.get(this.searchInput).clear().type(name);
+    cy.get(this.submitButton).click();
   }
   verifyEmployeeExists(name) {
     cy.contains(name).should('exist');
   }
   verifyNoEmployeeFound() {
-    cy.contains('No Records Found').should('exist');
+    cy.contains(this.noRecordsText).should('exist');
   }
 }
 module.exports = new PIMPage();

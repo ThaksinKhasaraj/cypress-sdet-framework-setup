@@ -1,16 +1,18 @@
-{
-  "batchName": "Batch July 2024",
-  "employeeName": "John",
-  "bonusAmount": 5000,
-  "deductionAmount": 1000,
-  "overtimeHours": 10,
-  "allowanceAmount": 2000,
-  "commissionAmount": 1500,
-  "reimbursementAmount": 800,
-  "loanAmount": 10000,
-  "taxAmount": 3000,
-  "providentFundAmount": 2000,
-  "insuranceAmount": 1200,
-  "gratuityAmount": 2500,
-  "leaveEncashmentAmount": 3000
-}
+[
+  {
+    "batchName": "Batch July 2024",
+    "employeeName": "John",
+    "bonusAmount": 5000,
+    "deductionAmount": 1000,
+    "overtimeHours": 10,
+    "allowanceAmount": 2000,
+    "commissionAmount": 1500,
+    "reimbursementAmount": 800,
+    "loanAmount": 10000,
+    "taxAmount": 3000,
+    "providentFundAmount": 2000,
+    "insuranceAmount": 1200,
+    "gratuityAmount": 2500,
+    "leaveEncashmentAmount": 3000
+  }
+]

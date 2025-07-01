@@ -1,14 +1,19 @@
-const loginPage = require('../support/pageObjects/LoginPage');
-const menuPage = require('../support/pageObjects/MenuPage');
-const orgPage = require('../support/pageObjects/OrgPage');
+const loginPage = require('../../support/pageObjects/LoginPage');
+const MenuPage = require('../../support/pageObjects/MenuPage');
+const menuPage = new MenuPage();
+const orgPage = require('../../support/pageObjects/OrgPage');
 const orgData = require('../../test-data/org-structure.json');
 
-describe('TC28: Organization structure and workflow scenario', () => {
-  before(() => {
+describe('TC03: Organization structure and workflow scenario', () => {
+before(() => {
     cy.fixture('users').then(users => {
-      const admin = users.find(u => u.role === 'Admin');
-      loginPage.login(admin ? admin.username : users[0].username, admin ? admin.password : users[0].password);
+      const payrollAdmin = users.find(u => u.role === 'Admin');
+      loginPage.login(payrollAdmin ? payrollAdmin.username : users[0].username, payrollAdmin ? payrollAdmin.password : users[0].password);
     });
+  });
+
+  after(() => {
+    cy.logout();
   });
 
   it('should complete all organization structure and workflow steps', () => {
@@ -61,6 +66,6 @@ describe('TC28: Organization structure and workflow scenario', () => {
     orgPage.addPositionNote(orgData.positionNote);
     orgPage.editPositionNote(orgData.positionNote, orgData.positionNoteUpdated);
     orgPage.deletePositionNote(orgData.positionNoteUpdated);
-    cy.logout();
+
   });
 });

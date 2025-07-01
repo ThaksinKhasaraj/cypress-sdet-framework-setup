@@ -2,7 +2,7 @@ const loginPage = require('../../support/pageObjects/LoginPage');
 
 describe('Login with multiple user roles', () => {
   beforeEach(() => {
-    // ...existing code...
+
   });
 
   it('should login with all user roles', () => {
