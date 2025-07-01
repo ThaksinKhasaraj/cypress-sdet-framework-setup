@@ -1,0 +1,12 @@
+[
+  { "case": "mobile", "device": "iPhone X", "width": 375, "height": 812 },
+  { "case": "mobile", "device": "Pixel 2", "width": 411, "height": 731 },
+  { "case": "mobile", "device": "Galaxy S9", "width": 360, "height": 740 },
+  { "case": "tablet", "device": "iPad", "width": 768, "height": 1024 },
+  { "case": "tablet", "device": "iPad Pro", "width": 1024, "height": 1366 },
+  { "case": "tablet", "device": "Galaxy Tab S4", "width": 712, "height": 1138 },
+  { "case": "desktop", "device": "Desktop 1280", "width": 1280, "height": 800 },
+  { "case": "desktop", "device": "Desktop 1440", "width": 1440, "height": 900 },
+  { "case": "desktop", "device": "Desktop 1920", "width": 1920, "height": 1080 },
+  { "case": "desktop", "device": "Desktop 2560", "width": 2560, "height": 1440 }
+]

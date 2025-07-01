@@ -1,10 +1,6 @@
-describe('Responsive UI', () => {
-  const viewports = [
-    { device: 'iPhone X', width: 375, height: 812 },
-    { device: 'iPad', width: 768, height: 1024 },
-    { device: 'Desktop', width: 1280, height: 800 }
-  ];
+const viewports = require('../../test-data/viewports.json');
 
+describe('Responsive UI', () => {
   beforeEach(() => {
     cy.fixture('users').then((users) => {
       cy.login(users[0].username, users[0].password);

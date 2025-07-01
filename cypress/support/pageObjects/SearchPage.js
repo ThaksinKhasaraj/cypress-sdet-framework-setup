@@ -1,7 +1,12 @@
+const locators = {
+  searchInput: 'input[placeholder="Search"]',
+  submitButton: 'button[type="submit"]'
+};
+
 class SearchPage {
   search(text) {
-    cy.get('input[placeholder="Search"]').type(text);
-    cy.get('button[type="submit"]').click();
+    cy.get(locators.searchInput).type(text);
+    cy.get(locators.submitButton).click();
   }
   verifyResult(text) {
     cy.contains(text).should('exist');

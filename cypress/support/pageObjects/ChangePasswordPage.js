@@ -1,19 +1,28 @@
+const locators = {
+  changePasswordLink: 'Change Password',
+  oldPasswordInput: 'input[name="oldPassword"]',
+  newPasswordInput: 'input[name="newPassword"]',
+  confirmPasswordInput: 'input[name="confirmPassword"]',
+  submitButton: 'button[type="submit"]',
+  successMessage: 'Password changed successfully'
+};
+
 class ChangePasswordPage {
   goToChangePassword() {
-    cy.contains('Change Password').click();
+    cy.contains(locators.changePasswordLink).click();
   }
   fillOldPassword(oldPass) {
-    cy.get('input[name="oldPassword"]').type(oldPass);
+    cy.get(locators.oldPasswordInput).type(oldPass);
   }
   fillNewPassword(newPass) {
-    cy.get('input[name="newPassword"]').type(newPass);
-    cy.get('input[name="confirmPassword"]').type(newPass);
+    cy.get(locators.newPasswordInput).type(newPass);
+    cy.get(locators.confirmPasswordInput).type(newPass);
   }
   submit() {
-    cy.get('button[type="submit"]').click();
+    cy.get(locators.submitButton).click();
   }
   verifySuccess() {
-    cy.contains('Password changed successfully').should('exist');
+    cy.contains(locators.successMessage).should('exist');
   }
   verifyError(message) {
     cy.contains(message).should('exist');

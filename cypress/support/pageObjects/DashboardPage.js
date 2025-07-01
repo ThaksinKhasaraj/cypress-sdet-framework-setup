@@ -1,9 +1,14 @@
+const locators = {
+  dashboardHeader: 'Dashboard',
+  profileLink: 'a[href*="viewMyDetails"]'
+};
+
 class DashboardPage {
   verifyWelcomeMessage() {
-    cy.contains('Dashboard').should('exist');
+    cy.contains(locators.dashboardHeader).should('exist');
   }
   goToProfile() {
-    cy.get('a[href*="viewMyDetails"]').click();
+    cy.get(locators.profileLink).click();
   }
   verifyWidget(widgetName) {
     cy.contains(widgetName).should('exist');

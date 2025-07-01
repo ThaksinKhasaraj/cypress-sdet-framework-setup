@@ -18,5 +18,15 @@ describe('Regression Test Cases', () => {
     cy.contains('Invalid credentials').should('exist');
   });
 
-  // ...add more regression cases as needed...
+
+  it('should show dashboard for all valid users', function () {
+    cy.fixture('users').then((users) => {
+      users.forEach(user => {
+        loginPage.login(user.username, user.password);
+        dashboardPage.verifyWelcomeMessage();
+        cy.logout();
+      });
+    });
+  });
+
 });

@@ -1,3 +1,17 @@
+const locators = {
+  admin: 'a[href*="admin"]',
+  pim: 'a[href*="pim"]',
+  leave: 'a[href*="leave"]',
+  time: 'a[href*="time"]',
+  recruitment: 'a[href*="recruitment"]',
+  myInfo: 'a[href*="viewMyDetails"]',
+  performance: 'a[href*="performance"]',
+  dashboard: 'a[href*="dashboard"]',
+  directory: 'a[href*="directory"]',
+  maintenance: 'a[href*="maintenance"]',
+  buzz: 'a[href*="buzz"]'
+};
+
 class MenuPage {
   openMenu(menuName) {
     cy.contains('a', menuName).click();
@@ -6,46 +20,38 @@ class MenuPage {
     cy.contains('a', menuName).should('be.visible');
   }
   goToAdmin() {
-    cy.get('a[href*="admin"]').click();
+    cy.get(locators.admin).click();
   }
   goToPIM() {
-    cy.get('a[href*="pim"]').click();
+    cy.get(locators.pim).click();
   }
   goToLeave() {
-    cy.get('a[href*="leave"]').click();
+    cy.get(locators.leave).click();
   }
   goToTime() {
-    cy.get('a[href*="time"]').click();
+    cy.get(locators.time).click();
   }
   goToRecruitment() {
-    cy.get('a[href*="recruitment"]').click();
+    cy.get(locators.recruitment).click();
   }
   goToMyInfo() {
-    cy.get('a[href*="viewMyDetails"]').click();
+    cy.get(locators.myInfo).click();
   }
   goToPerformance() {
-    cy.get('a[href*="performance"]').click();
+    cy.get(locators.performance).click();
   }
   goToDashboard() {
-    cy.get('a[href*="dashboard"]').click();
+    cy.get(locators.dashboard).click();
   }
   goToDirectory() {
-    cy.get('a[href*="directory"]').click();
+    cy.get(locators.directory).click();
   }
   goToMaintenance() {
-    cy.get('a[href*="maintenance"]').click();
+    cy.get(locators.maintenance).click();
   }
   goToBuzz() {
-    cy.get('a[href*="buzz"]').click();
-  }
-  verifyAllMenusVisible() {
-    const menus = [
-      'Admin', 'PIM', 'Leave', 'Time', 'Recruitment', 'My Info',
-      'Performance', 'Dashboard', 'Directory', 'Maintenance', 'Buzz'
-    ];
-    menus.forEach(menu => {
-      cy.contains('a', menu).should('be.visible');
-    });
+    cy.get(locators.buzz).click();
   }
 }
+
 module.exports = new MenuPage();

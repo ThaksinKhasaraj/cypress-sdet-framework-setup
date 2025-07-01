@@ -1,0 +1,16 @@
+{
+  "existingEmployees": [
+    "Linda",
+    "John",
+    "Sarah",
+    "Robert",
+    "Emily"
+  ],
+  "nonExistingEmployees": [
+    "NonExistingUser",
+    "GhostUser",
+    "TestNotFound",
+    "NobodyHere",
+    "MissingPerson"
+  ]
+}

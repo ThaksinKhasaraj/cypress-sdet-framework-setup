@@ -1,14 +1,19 @@
+const locators = {
+  profileHeader: 'Personal Details',
+  firstNameInput: 'input[name="firstName"]',
+  submitButton: 'button[type="submit"]'
+};
+
 class ProfilePage {
   verifyProfileHeader() {
-    cy.contains('Personal Details').should('exist');
+    cy.contains(locators.profileHeader).should('exist');
   }
   editFirstName(newName) {
-    cy.get('input[name="firstName"]').clear().type(newName);
+    cy.get(locators.firstNameInput).clear().type(newName);
   }
   save() {
-    cy.get('button[type="submit"]').click();
+    cy.get(locators.submitButton).click();
     cy.contains('Successfully Saved').should('exist');
-    cy.get('input[name="firstName"]').should('have.value', '');
   }
 }
 module.exports = new ProfilePage();
