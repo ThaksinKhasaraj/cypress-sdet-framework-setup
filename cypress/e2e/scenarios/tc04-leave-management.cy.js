@@ -1,6 +1,5 @@
 const loginPage = require('../../support/pageObjects/LoginPage');
-const MenuPage = require('../../support/pageObjects/MenuPage');
-const menuPage = new MenuPage();
+const menuPage = require('../../support/pageObjects/MenuPage');
 const leavePage = require('../../support/pageObjects/LeavePage');
 const leaveData = require('../../test-data/leave.json');
 

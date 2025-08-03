@@ -1,6 +1,5 @@
 const loginPage = require('../../support/pageObjects/LoginPage');
-const MenuPage = require('../../support/pageObjects/MenuPage');
-const menuPage = new MenuPage();
+const menuPage = require('../../support/pageObjects/MenuPage');
 const employeePage = require('../../support/pageObjects/EmployeePage');
 const employeeData = require('../../test-data/employee-lifecycle.json');
 
@@ -104,3 +103,4 @@ describe('TC01: Full employee lifecycle scenario', () => {
     employeePage.deleteEmployee(employeeData.updatedFirstName);
   });
 });
+

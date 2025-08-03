@@ -1,6 +1,5 @@
 const loginPage = require('../../support/pageObjects/LoginPage');
-const MenuPage = require('../../support/pageObjects/MenuPage');
-const menuPage = new MenuPage();
+const menuPage = require('../../support/pageObjects/MenuPage');
 const payrollPage = require('../../support/pageObjects/PayrollPage');
 const payrollData = require('../../test-data/payroll.json');
 

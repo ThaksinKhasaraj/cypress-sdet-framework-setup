@@ -1,8 +1,7 @@
 const loginPage = require('../../support/pageObjects/LoginPage');
 const dashboardPage = require('../../support/pageObjects/DashboardPage');
 const profilePage = require('../../support/pageObjects/ProfilePage');
-const MenuPage = require('../../support/pageObjects/MenuPage');
-const menuPage = new MenuPage();
+const menuPage = require('../../support/pageObjects/MenuPage');
 
 describe('E2E Test Cases', () => {
   beforeEach(() => {
