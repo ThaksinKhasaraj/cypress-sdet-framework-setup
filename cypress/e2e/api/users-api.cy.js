@@ -14,7 +14,7 @@ describe('Reqres.in Users Endpoint', () => {
         expect(response.status).to.eq(200);
         expect(response.body.data).to.be.an('array');
       } else {
-        // ถ้าไม่มี apiKey, reqres จะตอบ 200 ก็ได้ หรือ 401 ก็ได้ (ถ้า reqres config ให้ต้องใช้)
+       
         expect(response.status).to.be.oneOf([200, 401]);
       }
     });
