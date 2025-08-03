@@ -23,8 +23,7 @@ describe('Accessibility checks', () => {
           cy.task('log', `${v.id}: ${v.help} (${v.nodes.length} node(s))`);
         });
       }
-      // ไม่ต้อง fail test ถ้ามี violation แค่ log ไว้
-      // expect(violations.length, `${violations.length} accessibility violation(s) detected`).to.equal(0);
+      
     });
   });
 });

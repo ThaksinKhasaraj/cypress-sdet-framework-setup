@@ -22,3 +22,17 @@ Cypress.Commands.add('logout', () => {
   cy.contains(logoutLocators.logoutText).click();
   cy.url().should('include', '/auth/login');
 });
+
+
+//custom command for login  API 
+Cypress.Commands.add('apiLogin', (email, password) => {
+  cy.request('POST', `${Cypress.env('apiBase')}/login`, {
+    email,
+    password
+  }).then((response) => {
+    expect(response.status).to.eq(200);
+
+    Cypress.env('authToken', response.body.token);
+  });
+});
+

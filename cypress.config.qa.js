@@ -6,9 +6,9 @@ module.exports = defineConfig({
     supportFile: 'cypress/support/e2e.js',
     specPattern: 'cypress/e2e/**/*.cy.js',
     env: {
-      ENV: 'qa'
+      ENV: 'qa',
+      apiBase: 'https://reqres.in/api',
+      reqresApiKey: 'reqres-free-v1'  
     }
   }
 });
-
-

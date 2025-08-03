@@ -21,4 +21,9 @@ jobs:
         run: npm ci
 
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run | tee cypress-output.log
+
+      - name: Count total test cases
+        run: |
+          echo "Total test cases:"
+          grep -Eo '[0-9]+ passing' cypress-output.log | grep -Eo '[0-9]+' || echo "0"
